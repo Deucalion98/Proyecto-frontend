@@ -25,10 +25,10 @@
       para tener una mejor experiencia.
     ="<![endif]-->"
     .video-container
-      %video{autoplay:true, loop:true, width:"1280", heigth:"720", poster:"videos/images/imageP.jpg"}
+      %video{autoplay:true, loop:true, width:"1280", height:"720", poster:"videos/images/imageP.jpg"}
         %source{src:"videos/mp4/videoP.mp4",typ:"video/mp4"}
         %source{src:"videos/webm/videoP.webm",typ:"video/webm"}
-    .row.full-heigth.middle-xs.center-xs.relative.up
+    .row.full-height.middle-xs.center-xs.relative.up
       .colo-xs-12
         .box.white-text
           %img{src:"img/logo.png", width:200}
@@ -37,10 +37,30 @@
             %i.glyphicon.glyphicon-globe 
             Conocimiento colectivo
       %nav.fixed.top.right.navigation.white-text#navigation
-        -menu = ["Inicio", "Foro", "Contacto", "Acceder"]
+        -menu = ["Inicio", "Foro", "Tutoriales", "Acceder", "Contacto", "Ayuda"]
         %ul.list-inline
           -menu.each do |item|
             %li
               %a{}= item
-      .absolute.medium.black.large-padding.bottom.white-text.full-width#description
-        Aprende, crea, comparte el conocimiento
+      .absolute.black.large-padding.white-text.full-width#description
+        .row.middle-xs.center-xs
+          .col-xs-7.col-sm-6.white-text.medium
+            Aprende, crea, comparte el conocimiento
+          .col-xs.hidden#sticky-navigation
+            .box
+              %nav.text-right.navigation
+                %ul.list-inline
+                  -menu.each do |item|
+                    %li
+                      %a{}= item
+  .full-height
+
+  %script{src:"http://code.jquery.com/jquery-3.2.1.min.js", 
+  integrity:"sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=", 
+  crossorigin:"anonymous"}
+  :javascript
+    window.jQuery || document.write("<script src='js/jquery-3.2.0.min.js'><\/script>")
+  %script{src:"js/main.js"}
+  
+
+
