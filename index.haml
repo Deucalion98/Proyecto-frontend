@@ -28,7 +28,7 @@
       %video{autoplay:true, loop:true, width:"1280", height:"720", poster:"videos/images/imageP.jpg"}
         %source{src:"videos/mp4/videoP.mp4",typ:"video/mp4"}
         %source{src:"videos/webm/videoP.webm",typ:"video/webm"}
-    .row.full-height.middle-xs.center-xs.relative.up
+    .row.full-height.middle-xs.center-xs.relative.up#home
       .colo-xs-12
         .box.white-text
           %img{src:"img/logo.png", width:200}
@@ -37,7 +37,7 @@
             %i.glyphicon.glyphicon-globe 
             Conocimiento colectivo
       %nav.fixed.top.right.navigation.white-text#navigation
-        -menu = ["Inicio", "Foro", "Tutoriales", "Acceder", "Contacto", "Ayuda"]
+        -menu = ["Inicio", "Foro", "Acceder", "Contacto"]
         %ul.list-inline
           -menu.each do |item|
             %li
@@ -53,7 +53,20 @@
                   -menu.each do |item|
                     %li
                       %a{}= item
-  .full-height
+  .text-center.relative#menu
+    .absolute.white#menu-title
+      %h2.roboto.title Temas
+    -menu_photos = [ {name: "Noticias", image: "news"}, {name: "Gamers", image: "game"}, {name: "Programación", image: "dev"}, {name: "Fotografía", image: "photo"}, {name: "Smartphone", image: "movil"}, {name: "Electrónica", image: "elec"}, {name: "Zona Apple", image: "apple"},{name: "Off-topic", image: "ot"} ]
+    .row
+      -menu_photos.each do |photo|
+        .col-md-4.col-lg-3.col-sm-6.col-xs-12.tech{style:"background-image:url(/img/tech/#{photo[:image]}-thumb.jpg)"}
+          .screen
+            .row.middle-xs.full-height
+              .col-xs-12.white-text
+                %h3.roboto.subtitle= photo[:name]
+
+      
+    
 
   %script{src:"http://code.jquery.com/jquery-3.2.1.min.js", 
   integrity:"sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=", 

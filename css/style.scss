@@ -144,7 +144,34 @@ textarea {
 		top:0px;
 	}
 }
+.tech{
+	height:320px;
+	background-size: cover;
+	background-position:center;
+	padding:0px;
+	overflow:hidden;
+	&:hover{
+		.screen{
+			top:0%
+		}
+	}
+	.screen{
+		top:-100%;
+		position:relative;
+		background-color:rgba(209,30,30,.8);
+		height: 100%;
+		width: 100%;
+		transition: top .4s;
+	}
+}
 
+#menu-title{
+	width:300px;
+	z-index: 5;
+	top:50%;
+	left:calc(50% - 150px);
+	top:calc(50% - 2.5em);
+}
 
 
 
@@ -164,6 +191,10 @@ textarea {
 .black{
 	background-color:rgb(206,27,26);
 }
+.white{
+	color: rgb(206,27,26);
+	background-color: white;
+}
 .white-text{
 	color: white;
 }
@@ -171,7 +202,10 @@ textarea {
 	font-size:5em;
 }
 .medium{
-	font-size:1.5em;
+	font-size:1.3em;
+}
+.subtitle{
+	font-size:2.5em;
 }
 .large-padding{
 	padding: 10px 15px;
