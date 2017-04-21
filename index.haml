@@ -1,7 +1,7 @@
 /Codigo más eficiente con HAMl
 /Estandar HTML5
-!!!5  
-
+-gallery_image = ["gallery1.jpg", "gallery2.jpg", "gallery3.jpg", "gallery4.jpg", "gallery5.jpg", "gallery6.jpg", "gallery7.jpg","gallery8.jpg"]
+!!!5
 %html{class:"no-js", lang:"es"}
   %head
     %meta{charset:"utf-8"}
@@ -13,6 +13,7 @@
     %link{rel:"stylesheet", href:"https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.css"}
     %link{rel:"stylesheet", href:"css/style.css"}
     %meta{name:"viewport", content:"width=device-width, initial-scale=1"}
+    %meta{:"data-name" => "contadorimg", content:"#{gallery_image.size - 1}"}
     %script{src:"js/vendor/modernizr-2.8.3.min.js"}
   %body
     ="<!--[if lt IE 9]>"
@@ -56,7 +57,7 @@
   .text-center.relative#menu
     .absolute.white#menu-title
       %h2.roboto.title Temas
-    -menu_photos = [ {name: "Noticias", image: "news"}, {name: "Gamers", image: "game"}, {name: "Programación", image: "dev"}, {name: "Fotografía", image: "photo"}, {name: "Smartphone", image: "movil"}, {name: "Electrónica", image: "elec"}, {name: "Zona Apple", image: "apple"},{name: "Off-topic", image: "ot"} ]
+    -menu_photos = [ {name: "Noticias y novedades", image: "news"}, {name: "Juegos", image: "game"}, {name: "Programación", image: "dev"}, {name: "Fotografía", image: "photo"}, {name: "Móviles", image: "movil"}, {name: "Electrónica", image: "elec"}, {name: "Apple", image: "apple"},{name: "Off-topic", image: "ot"} ]
     .row
       -menu_photos.each do |photo|
         .col-md-4.col-lg-3.col-sm-6.col-xs-12.tech{style:"background-image:url(/img/tech/#{photo[:image]}-thumb.jpg)"}
@@ -64,6 +65,11 @@
             .row.middle-xs.full-height
               .col-xs-12.white-text
                 %h3.roboto.subtitle= photo[:name]
+
+  #gallery
+    .inner
+      -gallery_image.each do |image|
+        .image{style:"background-image:url(img/tech/#{image});"}
 
       
     

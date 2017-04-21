@@ -2,12 +2,32 @@
 ;(function() {
 	//Variable principal
 	let sticky = false
+	let currentPosition = 0
+
+	const contadorimg = $("[data-name='contadorimg']").attr("content")
+
+	console.log(contadorimg)
 
 	$("#sticky-navigation").removeClass("hidden")
 	$("#sticky-navigation").slideUp(0)
 
+	//Creacion intervalo de galeria
+	setInterval(()=>{
+		if (currentPosition < contadorimg) {
+			currentPosition++
+		}
+		else{
+			currentPosition = 0
+		}
+
+
+		$("#gallery .inner").css({
+			left: "-"+currentPosition*100+"%"
+		})
+	}, 4000)
+
 	//Declaracion JQuery = $
-	$(window).scroll(()=>{
+	 $(window).scroll(()=>{
 		const inBottom = isInBottom()
 
 		if (inBottom && !sticky) {
